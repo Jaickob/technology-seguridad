@@ -1,0 +1,37 @@
+[
+  {
+    "categoria": "Destacado",
+    "titulo": "Campaña de concientización 2026: el factor humano",
+    "resumen": "Phishing, ingeniería social, ransomware y deepfakes. Conoce el programa de formación que fortalece la primera línea de defensa: las personas.",
+    "fecha": "14 MAY 2026",
+    "enlace": "#"
+  },
+  {
+    "categoria": "Aviso",
+    "titulo": "Actualización de la lista de software aprobado",
+    "resumen": "Se actualizaron las listas de software aprobado y restringido según normativa y lineamientos vigentes.",
+    "fecha": "08 MAY 2026",
+    "enlace": "#"
+  },
+  {
+    "categoria": "Boletín",
+    "titulo": "Nueva landing de seguridad: recursos centralizados",
+    "resumen": "Políticas, guías y material de capacitación ahora disponibles en un solo lugar.",
+    "fecha": "29 ABR 2026",
+    "enlace": "#"
+  },
+  {
+    "categoria": "Certificación",
+    "titulo": "ISO/IEC 27001 renovada y vigente hasta 2027",
+    "resumen": "La auditoría externa confirma la continuidad del Sistema de Gestión de Seguridad de la Información.",
+    "fecha": "15 ABR 2026",
+    "enlace": "#"
+  },
+  {
+    "categoria": "Buenas prácticas",
+    "titulo": "Cómo reconocer correos de phishing dirigidos",
+    "resumen": "Señales de alerta y pasos a seguir ante un intento de suplantación.",
+    "fecha": "02 ABR 2026",
+    "enlace": "#"
+  }
+]

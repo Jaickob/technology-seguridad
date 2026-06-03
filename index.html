@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seguridad de la Información · Technology Solutions</title>
+<meta name="description" content="Área de Seguridad de la Información de Technology Solutions. Certificación ISO/IEC 27001, políticas, avisos y boletines de seguridad." />
+<meta property="og:title" content="Seguridad de la Información · Technology Solutions" />
+<meta property="og:description" content="Seguridad que respalda cada entrega de software. Certificación ISO/IEC 27001 vigente." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#0b1020;
+  --bg-2:#0e1428;
+  --panel:#121a33;
+  --panel-2:#16203d;
+  --deep:#080c18;
+  --ink:#eef1f8;
+  --muted:rgba(238,241,248,.58);
+  --faint:rgba(238,241,248,.40);
+  --stroke:rgba(238,241,248,.10);
+  --stroke-2:rgba(238,241,248,.20);
+  --blue:#1f6bff;
+  --blue-bright:#5f97ff;
+  --blue-dim:rgba(31,107,255,.14);
+  --blue-glow:rgba(31,107,255,.35);
+  --green:#3ad29f;
+  --disp:'Sora', ui-sans-serif, system-ui, sans-serif;
+  --body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 78% -5%, rgba(31,107,255,.16), transparent 60%),
+    radial-gradient(700px 600px at -10% 30%, rgba(31,107,255,.08), transparent 55%);
+}
+body::after{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.45;
+  background-image:radial-gradient(rgba(238,241,248,.045) 1px, transparent 1.4px);
+  background-size:30px 30px;
+}
+.stage{ position:relative; z-index:1; }
+.sheet{ max-width:1160px; margin:0 auto; padding:0 26px; }
+a{ color:inherit; text-decoration:none; }
+
+/* ---------- nav ---------- */
+.nav-wrap{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(140%) blur(14px);
+  background:rgba(11,16,32,.72);
+  border-bottom:1px solid var(--stroke);
+}
+.nav{ display:flex; align-items:center; gap:26px; height:68px; }
+.brand{ display:flex; align-items:center; gap:11px; font-family:var(--disp); font-weight:700; font-size:17px; letter-spacing:-.3px; }
+.brand .mark{
+  width:34px; height:34px; border-radius:9px; display:grid; place-items:center;
+  background:linear-gradient(145deg, var(--blue), #0c3fa6);
+  color:#fff; font-family:var(--disp); font-size:13px; font-weight:800;
+  box-shadow:0 4px 14px var(--blue-glow);
+}
+.nav .links{ display:flex; gap:24px; align-items:center; list-style:none; }
+.nav .links a{ font-size:14px; color:var(--muted); transition:color .2s; position:relative; padding:4px 0; }
+.nav .links a:hover{ color:var(--ink); }
+.nav .links a.active{ color:var(--ink); }
+.nav .links a.active::after{
+  content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background:var(--blue); border-radius:2px;
+}
+.nav .right{ margin-left:auto; display:flex; gap:16px; align-items:center; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+  font-family:var(--body); font-size:14px; font-weight:600;
+  border-radius:10px; padding:11px 18px; transition:transform .18s, box-shadow .2s, background .2s, border-color .2s;
+  border:1.5px solid transparent; white-space:nowrap;
+}
+.btn.primary{ background:var(--blue); color:#fff; box-shadow:0 6px 20px var(--blue-glow); }
+.btn.primary:hover{ transform:translateY(-2px); box-shadow:0 10px 28px var(--blue-glow); }
+.btn.ghost{ border-color:var(--stroke-2); color:var(--ink); background:transparent; }
+.btn.ghost:hover{ border-color:var(--blue-bright); color:var(--blue-bright); background:var(--blue-dim); }
+.btn.sm{ padding:9px 15px; font-size:13px; }
+
+/* ---------- hero ---------- */
+.hero{ display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding:84px 0 70px; }
+.eyebrow{ font-family:var(--disp); font-size:13px; font-weight:600; letter-spacing:1.5px; color:var(--blue-bright); text-transform:uppercase; }
+.hero h1{ font-family:var(--disp); font-weight:800; font-size:58px; line-height:1.04; letter-spacing:-1.6px; margin:18px 0 22px; }
+.hero h1 .accent{
+  background:linear-gradient(120deg, var(--blue-bright), #a9c5ff);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero p.lead{ font-size:17.5px; color:var(--muted); max-width:480px; margin-bottom:30px; }
+.hero .actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* hero visual panel */
+.shield-panel{
+  position:relative; border-radius:20px; padding:30px;
+  background:linear-gradient(160deg, var(--panel-2), var(--panel));
+  border:1px solid var(--stroke-2);
+  box-shadow:0 30px 70px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  overflow:hidden;
+}
+.shield-panel .glowring{
+  position:absolute; top:-60px; right:-60px; width:240px; height:240px; border-radius:50%;
+  background:radial-gradient(circle, var(--blue-glow), transparent 70%); pointer-events:none;
+}
+.shield-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+.shield-emblem{ display:flex; align-items:center; gap:14px; }
+.shield-icon{
+  width:58px; height:58px; position:relative; flex-shrink:0;
+}
+.shield-icon svg{ width:100%; height:100%; filter:drop-shadow(0 4px 12px var(--blue-glow)); }
+.shield-icon .ping{
+  position:absolute; inset:-6px; border-radius:14px; border:2px solid var(--blue);
+  opacity:0; animation:ping 2.8s ease-out infinite;
+}
+@keyframes ping{ 0%{ transform:scale(.85); opacity:.7; } 100%{ transform:scale(1.25); opacity:0; } }
+.shield-emblem .lbl{ font-family:var(--disp); font-weight:700; font-size:16px; }
+.shield-emblem .sub{ font-size:12.5px; color:var(--muted); }
+.shield-status{ display:flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:var(--green); }
+.shield-status .pulse{ width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 0 rgba(58,210,159,.6); animation:pulse 2s infinite; }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(58,210,159,.5);} 70%{ box-shadow:0 0 0 9px rgba(58,210,159,0);} 100%{ box-shadow:0 0 0 0 rgba(58,210,159,0);} }
+.ctrl-row{ display:flex; align-items:center; justify-content:space-between; padding:13px 0; border-top:1px solid var(--stroke); }
+.ctrl-row .name{ font-size:14px; color:var(--ink); display:flex; align-items:center; gap:10px; }
+.ctrl-row .name i{ width:6px; height:6px; border-radius:50%; background:var(--blue-bright); box-shadow:0 0 8px var(--blue-bright); }
+.ctrl-row .val{ font-family:var(--disp); font-size:13px; font-weight:600; color:var(--muted); }
+.ctrl-row .val.ok{ color:var(--green); }
+
+/* ---------- section heads ---------- */
+.sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin:72px 0 28px; }
+.sec-head h2{ font-family:var(--disp); font-weight:700; font-size:34px; letter-spacing:-1px; line-height:1.06; margin-top:9px; max-width:20ch; }
+
+/* ---------- compliance ---------- */
+.certs{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.cert{
+  border-radius:16px; padding:22px; background:var(--panel);
+  border:1px solid var(--stroke); display:flex; flex-direction:column; gap:14px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+}
+.cert:hover{ transform:translateY(-4px); border-color:var(--stroke-2); box-shadow:0 16px 40px rgba(0,0,0,.35); }
+.cert .badge{
+  align-self:flex-start; padding:7px 12px; border-radius:8px;
+  font-family:var(--disp); font-size:11px; font-weight:700; letter-spacing:.6px;
+  border:1.3px solid var(--stroke-2); color:var(--muted);
+}
+.cert.iso .badge{ border-color:var(--blue); color:var(--blue-bright); background:var(--blue-dim); }
+.cert .ttl{ font-size:14.5px; font-weight:600; line-height:1.4; }
+.cert .desc{ font-size:13px; color:var(--muted); margin-top:auto; }
+.partners{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:22px; }
+.partners .lbl{ font-family:var(--disp); font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--faint); margin-right:4px; }
+.partner{ font-size:13px; color:var(--muted); border:1px solid var(--stroke); border-radius:8px; padding:8px 14px; transition:color .2s, border-color .2s; }
+.partner:hover{ color:var(--ink); border-color:var(--stroke-2); }
+
+/* ---------- news ---------- */
+.news-feature{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
+.chip{
+  display:inline-flex; align-items:center; gap:6px; align-self:flex-start;
+  font-family:var(--disp); font-size:11px; font-weight:600; letter-spacing:.5px; text-transform:uppercase;
+  border-radius:999px; padding:5px 12px; border:1.2px solid var(--stroke-2); color:var(--muted);
+}
+.chip.blue{ color:var(--blue-bright); border-color:transparent; background:var(--blue-dim); }
+.feature-card{
+  border-radius:18px; overflow:hidden; background:var(--panel); border:1px solid var(--stroke);
+  display:flex; flex-direction:column; transition:transform .2s, border-color .2s, box-shadow .2s;
+}
+.feature-card:hover{ transform:translateY(-4px); border-color:var(--stroke-2); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+.feature-thumb{
+  min-height:250px; position:relative;
+  background:linear-gradient(140deg, #14305f, #0c1a3a);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.feature-thumb::before{
+  content:''; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(95,151,255,.25) 1px, transparent 1.5px); background-size:22px 22px; opacity:.5;
+}
+.feature-thumb .em{ position:relative; width:78px; height:78px; opacity:.9; filter:drop-shadow(0 6px 18px var(--blue-glow)); }
+.feature-body{ padding:24px; display:flex; flex-direction:column; gap:14px; }
+.feature-body h3{ font-family:var(--disp); font-weight:700; font-size:23px; line-height:1.22; letter-spacing:-.5px; }
+.feature-body p{ font-size:14.5px; color:var(--muted); }
+.meta{ display:flex; align-items:center; gap:16px; margin-top:4px; }
+.meta .date{ font-family:var(--disp); font-size:12px; font-weight:600; color:var(--faint); letter-spacing:.5px; }
+.read{ font-size:13.5px; font-weight:600; color:var(--blue-bright); display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
+.feature-card:hover .read{ gap:11px; }
+.sec-list{ display:flex; flex-direction:column; gap:14px; }
+.sec-item{
+  display:grid; grid-template-columns:78px 1fr; gap:16px; padding:15px; align-items:center;
+  border-radius:14px; background:var(--panel); border:1px solid var(--stroke);
+  transition:transform .18s, border-color .2s; cursor:pointer;
+}
+.sec-item:hover{ transform:translateX(4px); border-color:var(--stroke-2); }
+.sec-thumb{
+  width:78px; height:64px; border-radius:10px; flex-shrink:0;
+  background:linear-gradient(140deg, #14305f, #0c1a3a);
+  display:grid; place-items:center; color:var(--blue-bright);
+}
+.sec-thumb svg{ width:26px; height:26px; opacity:.85; }
+.sec-item .body{ display:flex; flex-direction:column; gap:7px; min-width:0; }
+.sec-item .body h4{ font-family:var(--disp); font-weight:600; font-size:15px; line-height:1.3; }
+.sec-item .body .date{ font-size:11.5px; color:var(--faint); font-weight:600; letter-spacing:.4px; }
+.news-loading{ padding:40px; text-align:center; color:var(--muted); font-size:14px; grid-column:1/-1; }
+
+/* ---------- footer ---------- */
+.foot{ margin-top:90px; border-top:1px solid var(--stroke); padding:42px 0 50px; }
+.foot-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:30px; }
+.foot h4{ font-family:var(--disp); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue-bright); margin-bottom:12px; }
+.ftext{ color:var(--muted); font-size:13.5px; line-height:1.7; max-width:34ch; }
+.ftext.sm{ font-size:12.5px; }
+.socials{ display:flex; gap:16px; margin-top:16px; font-size:13px; color:var(--muted); }
+.socials a:hover{ color:var(--blue-bright); }
+.foot-iso{ display:flex; justify-content:space-between; align-items:center; gap:22px; flex-wrap:wrap; margin-top:34px; padding-top:26px; border-top:1px solid var(--stroke); }
+.iso-badge{ display:flex; align-items:center; gap:16px; }
+.iso-badge .seal{ padding:11px 15px; border-radius:10px; border:1.5px solid var(--blue); color:var(--blue-bright); font-family:var(--disp); font-size:13px; font-weight:700; background:var(--blue-dim); }
+.legal{ display:flex; gap:20px; flex-wrap:wrap; }
+.legal a{ font-size:12.5px; color:var(--muted); text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+.legal a:hover{ color:var(--ink); }
+.foot-bottom{ display:flex; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--stroke); font-size:12.5px; color:var(--faint); }
+
+/* ---------- reveal animation ---------- */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
+.reveal.in{ opacity:1; transform:none; }
+.hero .eyebrow{ animation:fadeUp .7s both; }
+.hero h1{ animation:fadeUp .7s .08s both; }
+.hero p.lead{ animation:fadeUp .7s .16s both; }
+.hero .actions{ animation:fadeUp .7s .24s both; }
+.shield-panel{ animation:fadeUp .8s .2s both; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(24px);} to{ opacity:1; transform:none; } }
+
+@media (max-width:920px){
+  .hero{ grid-template-columns:1fr; gap:40px; padding:54px 0 40px; }
+  .hero h1{ font-size:44px; }
+  .certs{ grid-template-columns:repeat(2,1fr); }
+  .news-feature{ grid-template-columns:1fr; }
+  .foot-grid{ grid-template-columns:1fr 1fr; }
+  .nav .links{ display:none; }
+}
+@media (max-width:560px){
+  .sheet{ padding:0 18px; }
+  .hero h1{ font-size:36px; }
+  .certs{ grid-template-columns:1fr; }
+  .foot-grid{ grid-template-columns:1fr; }
+  .sec-head h2{ font-size:27px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <div class="sheet">
+    <nav class="nav">
+      <a class="brand" href="index.php"><span class="mark">TS</span> Technology Solutions</a>
+      <ul class="links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="soluciones.php">Soluciones</a></li>
+        <li><a href="clientes.php">Clientes</a></li>
+        <li><a href="#" class="active">Seguridad</a></li>
+        <li><a href="novedades.php">Novedades</a></li>
+      </ul>
+      <div class="right">
+        <a class="btn ghost sm" href="contactenos.php">Contáctenos</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main class="stage">
+  <div class="sheet">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow">// Seguridad de la Información</div>
+        <h1>Seguridad que respalda <span class="accent">cada entrega</span> de software.</h1>
+        <p class="lead">Protegemos la información de nuestros clientes y la continuidad de nuestras operaciones con un Sistema de Gestión certificado, controles auditados y una cultura de seguridad que vive en cada equipo.</p>
+        <div class="actions">
+          <a class="btn primary" href="politica-general-de-seguridad-de-la-informacion.pdf">Descargar política</a>
+          <a class="btn ghost" href="contactenos.php">Agendar reunión</a>
+        </div>
+      </div>
+
+      <div class="shield-panel">
+        <div class="glowring"></div>
+        <div class="shield-top">
+          <div class="shield-emblem">
+            <div class="shield-icon">
+              <span class="ping"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#5f97ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z" fill="rgba(31,107,255,.18)"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <div class="lbl">SGSI activo</div>
+              <div class="sub">ISO/IEC 27001</div>
+            </div>
+          </div>
+          <div class="shield-status"><span class="pulse"></span> Operativo</div>
+        </div>
+
+        <div class="ctrl-row"><span class="name"><i></i> Gestión de accesos</span><span class="val ok">Conforme</span></div>
+        <div class="ctrl-row"><span class="name"><i></i> Cifrado en tránsito y reposo</span><span class="val ok">Activo</span></div>
+        <div class="ctrl-row"><span class="name"><i></i> Monitoreo continuo</span><span class="val ok">24/7</span></div>
+        <div class="ctrl-row"><span class="name"><i></i> Concientización del personal</span><span class="val">Campaña 2026</span></div>
+      </div>
+    </section>
+
+    <!-- COMPLIANCE -->
+    <section>
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">// Confianza verificable</div>
+          <h2>Seguridad y cumplimiento</h2>
+        </div>
+        <span class="chip">Auditoría externa anual</span>
+      </div>
+      <div class="certs">
+        <div class="cert iso">
+          <span class="badge">ISO/IEC 27001</span>
+          <div class="ttl">Sistema de Gestión de Seguridad de la Información</div>
+          <div class="desc">Estándar internacional que certifica la gestión de riesgos de información.</div>
+        </div>
+        <div class="cert">
+          <span class="badge">VIGENTE 2027</span>
+          <div class="ttl">Certificación auditada y renovada</div>
+          <div class="desc">Validada por organismo externo, vigente hasta 2027.</div>
+        </div>
+        <div class="cert">
+          <span class="badge">POLÍTICA</span>
+          <div class="ttl">Política General de Seguridad de la Información</div>
+          <div class="desc">Marco normativo y lineamientos aplicables a toda la organización.</div>
+        </div>
+        <div class="cert">
+          <span class="badge">DEVSECOPS</span>
+          <div class="ttl">Seguridad integrada en el ciclo de entrega</div>
+          <div class="desc">Controles de seguridad embebidos desde el desarrollo.</div>
+        </div>
+      </div>
+      <div class="partners">
+        <span class="lbl">Partners</span>
+        <span class="partner">Parasoft</span>
+        <span class="partner">CloudBees</span>
+        <span class="partner">OpenText</span>
+        <span class="partner">Inflectra</span>
+        <span class="partner">Rocket</span>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section>
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">// Novedades</div>
+          <h2>Avisos y boletines de seguridad</h2>
+        </div>
+        <a class="btn ghost sm" href="novedades.php">Ver todas →</a>
+      </div>
+      <div class="news-feature" id="news-root">
+        <div class="news-loading">Cargando novedades…</div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="foot">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="index.php" style="margin-bottom:14px;"><span class="mark">TS</span> Technology Solutions</a>
+          <div class="ftext">Damos valor a las empresas latinoamericanas en el ciclo de vida del software con soluciones innovadoras y certificadas.</div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/company/technology-solutions-latam/">LinkedIn</a>
+            <a href="https://twitter.com/technologylatam">X</a>
+            <a href="https://linktr.ee/technologysolutionslatam">Linktree</a>
+          </div>
+        </div>
+        <div>
+          <h4>Argentina</h4>
+          <div class="ftext sm">Av. Cabildo 1370 · Of. 301 · CABA<br/>(+54) 11 4963 9345<br/>contacto@technologylatam.com</div>
+        </div>
+        <div>
+          <h4>Chile</h4>
+          <div class="ftext sm">Av. Providencia 1208 · Of. 1604<br/>Providencia, Santiago<br/>(+56) 2 3287 4904</div>
+        </div>
+        <div>
+          <h4>México</h4>
+          <div class="ftext sm">Av. Insurgentes Sur 1863 · Of. 301<br/>Ciudad de México<br/>(+55) 5 6631 579</div>
+        </div>
+      </div>
+      <div class="foot-iso">
+        <div class="iso-badge">
+          <span class="seal">ISO/IEC 27001</span>
+          <div>
+            <div class="ftext" style="color:var(--ink);font-weight:600">Certificados en ISO 27001 — Seguridad de la Información</div>
+            <div class="ftext sm">Vigente hasta 2027</div>
+          </div>
+        </div>
+        <div class="legal">
+          <a href="politica-privacidad-proteccion-datos-2.pdf">Privacidad de Datos</a>
+          <a href="politica-general-de-seguridad-de-la-informacion.pdf">Política General de Seguridad de la Información</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Technology Solutions 2026</span>
+        <span>Argentina · Chile · México</span>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+<script>
+// ---- Iconos por categoría (SVG inline) ----
+const ICONS = {
+  aviso:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>',
+  boletin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg>',
+  certificacion:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 13-2 8 5-3 5 3-2-8"/></svg>',
+  practicas:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+  destacado:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>',
+  default:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z"/></svg>'
+};
+
+const HERO_EMBLEM = '<svg viewBox="0 0 24 24" fill="none" stroke="#5f97ff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="em"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z" fill="rgba(31,107,255,.18)"/><path d="m9 12 2 2 4-4"/></svg>';
+
+function escapeHtml(s){ return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function iconFor(cat){ const k=(cat||'').toLowerCase(); if(k.includes('avis'))return ICONS.aviso; if(k.includes('bolet'))return ICONS.boletin; if(k.includes('cert'))return ICONS.certificacion; if(k.includes('pr\u00e1ct')||k.includes('pract'))return ICONS.practicas; if(k.includes('destac'))return ICONS.destacado; return ICONS.default; }
+
+function renderNews(items){
+  const root = document.getElementById('news-root');
+  if(!items || !items.length){ root.innerHTML = '<div class="news-loading">No hay novedades por ahora.</div>'; return; }
+  const [feat, ...rest] = items;
+  const secondaries = rest.slice(0,4);
+
+  const featHtml = `
+    <article class="feature-card">
+      <div class="feature-thumb">${HERO_EMBLEM}</div>
+      <div class="feature-body">
+        <span class="chip blue">${escapeHtml(feat.categoria || 'Destacado')}</span>
+        <h3>${escapeHtml(feat.titulo)}</h3>
+        <p>${escapeHtml(feat.resumen || '')}</p>
+        <div class="meta">
+          <span class="date">${escapeHtml(feat.fecha || '')}</span>
+          <a class="read" href="${escapeHtml(feat.enlace || '#')}">Leer artículo →</a>
+        </div>
+      </div>
+    </article>`;
+
+  const listHtml = secondaries.map(n => `
+    <article class="sec-item" onclick="window.location.href='${escapeHtml(n.enlace || '#')}'">
+      <div class="sec-thumb">${iconFor(n.categoria)}</div>
+      <div class="body">
+        <span class="chip">${escapeHtml(n.categoria || '')}</span>
+        <h4>${escapeHtml(n.titulo)}</h4>
+        <span class="date">${escapeHtml(n.fecha || '')}</span>
+      </div>
+    </article>`).join('');
+
+  root.innerHTML = featHtml + `<div class="sec-list">${listHtml}</div>`;
+}
+
+// ---- Datos de respaldo (se usan si no se puede cargar noticias.json) ----
+const FALLBACK = [
+  { categoria:"Destacado", titulo:"Campaña de concientización 2026: el factor humano", resumen:"Phishing, ingeniería social, ransomware y deepfakes. Conoce el programa de formación que fortalece la primera línea de defensa: las personas.", fecha:"14 MAY 2026", enlace:"#" },
+  { categoria:"Aviso", titulo:"Actualización de la lista de software aprobado", fecha:"08 MAY 2026", enlace:"#" },
+  { categoria:"Boletín", titulo:"Nueva landing de seguridad: recursos centralizados", fecha:"29 ABR 2026", enlace:"#" },
+  { categoria:"Certificación", titulo:"ISO/IEC 27001 renovada y vigente hasta 2027", fecha:"15 ABR 2026", enlace:"#" },
+  { categoria:"Buenas prácticas", titulo:"Cómo reconocer correos de phishing dirigidos", fecha:"02 ABR 2026", enlace:"#" }
+];
+
+async function loadNews(){
+  try{
+    const res = await fetch('noticias.json', { cache:'no-store' });
+    if(!res.ok) throw new Error('http '+res.status);
+    const data = await res.json();
+    renderNews(Array.isArray(data) ? data : (data.noticias || []));
+  }catch(e){
+    renderNews(FALLBACK);
+  }
+}
+loadNews();
+
+// ---- Reveal on scroll ----
+document.querySelectorAll('section').forEach((s,i)=>{ if(i>0) s.classList.add('reveal'); });
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
