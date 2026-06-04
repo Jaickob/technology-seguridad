@@ -1,37 +1,183 @@
 [
   {
+    "id": "campana-concientizacion-2026",
     "categoria": "Destacado",
     "titulo": "Campaña de concientización 2026: el factor humano",
     "resumen": "Phishing, ingeniería social, ransomware y deepfakes. Conoce el programa de formación que fortalece la primera línea de defensa: las personas.",
     "fecha": "14 MAY 2026",
-    "enlace": "#"
+    "autor": "Equipo de Seguridad de la Información",
+    "contenido": [
+      {
+        "tipo": "parrafo",
+        "texto": "La tecnología protege, pero las decisiones las toman las personas. La mayoría de los incidentes de seguridad no comienzan con una falla técnica, sino con un clic, una contraseña compartida o un correo que parecía legítimo. Por eso, durante 2026 reforzamos nuestro programa de concientización con un enfoque claro: convertir a cada colaborador en una línea de defensa activa."
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Cuatro amenazas en la mira"
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "El programa aborda las técnicas que hoy explotan con mayor frecuencia el factor humano, con ejemplos reales y ejercicios prácticos."
+      },
+      {
+        "tipo": "lista",
+        "items": [
+          "Phishing y correos de suplantación: cómo identificar señales de alerta antes de hacer clic.",
+          "Ingeniería social: tácticas de manipulación por teléfono, mensajería y presencialmente.",
+          "Ransomware: qué hacer (y qué no) ante un equipo comprometido.",
+          "Deepfakes: voz e imagen sintética usadas para fraudes y suplantación de identidad."
+        ]
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Cómo participar"
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "Las sesiones se realizan por Google Meet y quedan disponibles junto con el material de apoyo en la landing de seguridad. Cada equipo cuenta además con un Security Champion como punto de contacto cercano para dudas y reportes."
+      },
+      {
+        "tipo": "cita",
+        "texto": "La seguridad no es responsabilidad de un área: es una cultura que se construye entre todos."
+      }
+    ]
   },
   {
+    "id": "actualizacion-software-aprobado",
     "categoria": "Aviso",
     "titulo": "Actualización de la lista de software aprobado",
     "resumen": "Se actualizaron las listas de software aprobado y restringido según normativa y lineamientos vigentes.",
     "fecha": "08 MAY 2026",
-    "enlace": "#"
+    "autor": "Equipo de Seguridad de la Información",
+    "contenido": [
+      {
+        "tipo": "parrafo",
+        "texto": "Como parte del cumplimiento de nuestra normativa interna y de los lineamientos del Sistema de Gestión de Seguridad de la Información, se actualizó el listado de software autorizado para su uso en equipos corporativos."
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Qué cambia"
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "El uso de software no autorizado representa un riesgo para la confidencialidad, integridad y disponibilidad de la información. La gestión de aplicaciones permitidas y restringidas responde a este principio, no a una simple lista de preferencias."
+      },
+      {
+        "tipo": "lista",
+        "items": [
+          "Software aprobado (whitelist): aplicaciones validadas y permitidas para instalación.",
+          "Software restringido (blacklist): aplicaciones bloqueadas por riesgo o incompatibilidad normativa.",
+          "Solicitudes de excepción: se gestionan a través del área de Seguridad de la Información."
+        ]
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "Si necesitas una herramienta que no figura en el listado aprobado, contacta al área antes de instalarla. Evaluaremos la solicitud según los lineamientos vigentes."
+      }
+    ]
   },
   {
+    "id": "nueva-landing-seguridad",
     "categoria": "Boletín",
     "titulo": "Nueva landing de seguridad: recursos centralizados",
     "resumen": "Políticas, guías y material de capacitación ahora disponibles en un solo lugar.",
     "fecha": "29 ABR 2026",
-    "enlace": "#"
+    "autor": "Equipo de Seguridad de la Información",
+    "contenido": [
+      {
+        "tipo": "parrafo",
+        "texto": "Lanzamos un espacio centralizado donde encontrarás todo lo relacionado con la seguridad de la información: políticas vigentes, guías de buenas prácticas, material de las campañas de concientización y los avisos más recientes."
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Qué encontrarás"
+      },
+      {
+        "tipo": "lista",
+        "items": [
+          "Documentación del SGSI y políticas aplicables.",
+          "Material de capacitación y grabaciones de sesiones.",
+          "Avisos, boletines y novedades del área.",
+          "Canales de contacto para reportes y consultas."
+        ]
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "El objetivo es simple: que cualquier colaborador encuentre rápido lo que necesita, sin depender de buscar correos antiguos o preguntar dónde está cada documento."
+      }
+    ]
   },
   {
+    "id": "iso-27001-renovada-2027",
     "categoria": "Certificación",
     "titulo": "ISO/IEC 27001 renovada y vigente hasta 2027",
     "resumen": "La auditoría externa confirma la continuidad del Sistema de Gestión de Seguridad de la Información.",
     "fecha": "15 ABR 2026",
-    "enlace": "#"
+    "autor": "Equipo de Seguridad de la Información",
+    "contenido": [
+      {
+        "tipo": "parrafo",
+        "texto": "Tras la auditoría externa anual, se confirmó la renovación de nuestra certificación ISO/IEC 27001, que respalda la gestión de la seguridad de la información bajo un estándar reconocido internacionalmente. La certificación se mantiene vigente hasta 2027."
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Qué significa esta certificación"
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "ISO/IEC 27001 no es un trámite: implica demostrar que existe un sistema de gestión que identifica riesgos, define controles y mejora de forma continua. La renovación confirma que esos procesos siguen funcionando y evolucionando."
+      },
+      {
+        "tipo": "lista",
+        "items": [
+          "Gestión de riesgos documentada y revisada periódicamente.",
+          "Controles auditados por un organismo externo independiente.",
+          "Ciclo de mejora continua sobre las acciones correctivas."
+        ]
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "Agradecemos a todas las áreas que participaron en el proceso. Mantener la certificación es un esfuerzo colectivo que refuerza la confianza de nuestros clientes."
+      }
+    ]
   },
   {
+    "id": "reconocer-phishing-dirigido",
     "categoria": "Buenas prácticas",
     "titulo": "Cómo reconocer correos de phishing dirigidos",
     "resumen": "Señales de alerta y pasos a seguir ante un intento de suplantación.",
     "fecha": "02 ABR 2026",
-    "enlace": "#"
+    "autor": "Equipo de Seguridad de la Información",
+    "contenido": [
+      {
+        "tipo": "parrafo",
+        "texto": "El phishing dirigido (o spear phishing) es más difícil de detectar que el correo masivo: el atacante investiga a su víctima y personaliza el mensaje. Puede hacerse pasar por un jefe, un proveedor o un área interna. Estas son las señales que ayudan a detectarlo a tiempo."
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Señales de alerta"
+      },
+      {
+        "tipo": "lista",
+        "items": [
+          "Sentido de urgencia o presión: «hazlo ahora», «es confidencial», «antes de que cierre el día».",
+          "Remitente que parece conocido pero con una dirección ligeramente distinta.",
+          "Solicitudes inusuales: transferencias, credenciales, cambios de datos bancarios.",
+          "Enlaces o adjuntos inesperados, aunque el mensaje parezca legítimo."
+        ]
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Qué hacer"
+      },
+      {
+        "tipo": "parrafo",
+        "texto": "Ante la duda, no hagas clic ni respondas. Verifica por un canal alternativo (una llamada, un mensaje directo) y reporta el correo al área de Seguridad de la Información. Reportar a tiempo permite proteger también al resto de la organización."
+      },
+      {
+        "tipo": "cita",
+        "texto": "Un reporte temprano vale más que cien correos eliminados en silencio."
+      }
+    ]
   }
 ]
