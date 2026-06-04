@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Artículo · Seguridad de la Información · Technology Solutions</title>
+<meta name="description" content="Avisos y boletines de seguridad — Technology Solutions." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#0b1020; --bg-2:#0e1428; --panel:#121a33; --panel-2:#16203d; --deep:#080c18;
+  --ink:#eef1f8; --muted:rgba(238,241,248,.58); --faint:rgba(238,241,248,.40);
+  --stroke:rgba(238,241,248,.10); --stroke-2:rgba(238,241,248,.20);
+  --blue:#1f6bff; --blue-bright:#5f97ff; --blue-dim:rgba(31,107,255,.14); --blue-glow:rgba(31,107,255,.35);
+  --green:#3ad29f;
+  --disp:'Sora', ui-sans-serif, system-ui, sans-serif;
+  --body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body::before{ content:''; position:fixed; inset:0; z-index:0; pointer-events:none; background:radial-gradient(900px 500px at 78% -5%, rgba(31,107,255,.16), transparent 60%), radial-gradient(700px 600px at -10% 30%, rgba(31,107,255,.08), transparent 55%); }
+body::after{ content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.45; background-image:radial-gradient(rgba(238,241,248,.045) 1px, transparent 1.4px); background-size:30px 30px; }
+.stage{ position:relative; z-index:1; }
+.sheet{ max-width:1160px; margin:0 auto; padding:0 26px; }
+a{ color:inherit; text-decoration:none; }
+
+/* progress bar */
+.progress{ position:fixed; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg, var(--blue), var(--blue-bright)); z-index:60; box-shadow:0 0 10px var(--blue-glow); transition:width .1s linear; }
+
+/* nav */
+.nav-wrap{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(14px); background:rgba(11,16,32,.72); border-bottom:1px solid var(--stroke); }
+.nav{ display:flex; align-items:center; gap:26px; height:68px; }
+.brand{ display:flex; align-items:center; gap:11px; font-family:var(--disp); font-weight:700; font-size:17px; letter-spacing:-.3px; }
+.brand .mark{ width:34px; height:34px; border-radius:9px; display:grid; place-items:center; background:linear-gradient(145deg, var(--blue), #0c3fa6); color:#fff; font-family:var(--disp); font-size:13px; font-weight:800; box-shadow:0 4px 14px var(--blue-glow); }
+.nav .links{ display:flex; gap:24px; align-items:center; list-style:none; }
+.nav .links a{ font-size:14px; color:var(--muted); transition:color .2s; position:relative; padding:4px 0; }
+.nav .links a:hover, .nav .links a.active{ color:var(--ink); }
+.nav .links a.active::after{ content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--blue); border-radius:2px; }
+.nav .right{ margin-left:auto; display:flex; gap:16px; align-items:center; }
+.btn{ display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-family:var(--body); font-size:14px; font-weight:600; border-radius:10px; padding:11px 18px; transition:transform .18s, box-shadow .2s, background .2s, border-color .2s; border:1.5px solid transparent; white-space:nowrap; }
+.btn.primary{ background:var(--blue); color:#fff; box-shadow:0 6px 20px var(--blue-glow); }
+.btn.primary:hover{ transform:translateY(-2px); box-shadow:0 10px 28px var(--blue-glow); }
+.btn.ghost{ border-color:var(--stroke-2); color:var(--ink); background:transparent; }
+.btn.ghost:hover{ border-color:var(--blue-bright); color:var(--blue-bright); background:var(--blue-dim); }
+.btn.sm{ padding:9px 15px; font-size:13px; }
+
+/* article */
+.article-wrap{ max-width:760px; margin:0 auto; padding:0 26px; }
+.back{ display:inline-flex; align-items:center; gap:7px; font-size:13.5px; font-weight:600; color:var(--muted); margin:38px 0 26px; transition:gap .2s, color .2s; }
+.back:hover{ gap:11px; color:var(--blue-bright); }
+.chip{ display:inline-flex; align-items:center; gap:6px; font-family:var(--disp); font-size:11px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; border-radius:999px; padding:6px 13px; border:1.2px solid transparent; background:var(--blue-dim); color:var(--blue-bright); }
+.art-title{ font-family:var(--disp); font-weight:800; font-size:42px; line-height:1.1; letter-spacing:-1.3px; margin:18px 0 16px; }
+.art-meta{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; color:var(--faint); font-size:13px; font-weight:600; letter-spacing:.3px; }
+.art-meta .sep{ width:4px; height:4px; border-radius:50%; background:var(--faint); }
+.art-hero{ margin:30px 0 36px; min-height:240px; border-radius:18px; position:relative; overflow:hidden; background:linear-gradient(140deg, #14305f, #0c1a3a); display:grid; place-items:center; border:1px solid var(--stroke); }
+.art-hero::before{ content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(95,151,255,.25) 1px, transparent 1.5px); background-size:24px 24px; opacity:.5; }
+.art-hero svg{ width:84px; height:84px; position:relative; color:var(--blue-bright); filter:drop-shadow(0 6px 18px var(--blue-glow)); }
+.art-body{ font-size:17.5px; line-height:1.8; color:rgba(238,241,248,.86); }
+.art-body p{ margin:0 0 22px; }
+.art-body h2{ font-family:var(--disp); font-weight:700; font-size:25px; letter-spacing:-.5px; color:var(--ink); margin:38px 0 16px; }
+.art-body ul{ margin:0 0 24px; padding-left:0; list-style:none; }
+.art-body li{ position:relative; padding-left:30px; margin-bottom:13px; }
+.art-body li::before{ content:''; position:absolute; left:6px; top:11px; width:8px; height:8px; border-radius:50%; background:var(--blue-bright); box-shadow:0 0 8px var(--blue-glow); }
+.art-body blockquote{ margin:32px 0; padding:20px 26px; border-left:3px solid var(--blue); background:var(--panel); border-radius:0 14px 14px 0; font-family:var(--disp); font-size:19px; font-weight:500; font-style:italic; line-height:1.5; color:var(--ink); }
+.art-foot{ margin:44px 0 0; padding-top:26px; border-top:1px solid var(--stroke); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.art-foot .who{ font-size:13.5px; color:var(--muted); }
+.art-foot .who b{ color:var(--ink); font-weight:600; }
+.loading, .notfound{ text-align:center; padding:90px 20px; color:var(--muted); }
+.notfound h1{ font-family:var(--disp); font-size:30px; color:var(--ink); margin-bottom:12px; letter-spacing:-.5px; }
+
+/* related */
+.related{ margin-top:80px; }
+.related h3{ font-family:var(--disp); font-weight:700; font-size:22px; letter-spacing:-.5px; margin-bottom:20px; }
+.rel-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.rel-card{ border-radius:14px; background:var(--panel); border:1px solid var(--stroke); padding:18px; cursor:pointer; transition:transform .18s, border-color .2s, box-shadow .2s; display:flex; flex-direction:column; gap:11px; }
+.rel-card:hover{ transform:translateY(-4px); border-color:var(--stroke-2); box-shadow:0 16px 40px rgba(0,0,0,.35); }
+.rel-card .cat{ font-family:var(--disp); font-size:10.5px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--blue-bright); }
+.rel-card h4{ font-family:var(--disp); font-weight:600; font-size:15.5px; line-height:1.32; }
+.rel-card .date{ font-size:11.5px; color:var(--faint); font-weight:600; margin-top:auto; }
+
+/* footer */
+.foot{ margin-top:90px; border-top:1px solid var(--stroke); padding:42px 0 50px; }
+.foot-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:30px; }
+.foot h4{ font-family:var(--disp); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue-bright); margin-bottom:12px; }
+.ftext{ color:var(--muted); font-size:13.5px; line-height:1.7; max-width:34ch; }
+.ftext.sm{ font-size:12.5px; }
+.socials{ display:flex; gap:16px; margin-top:16px; font-size:13px; color:var(--muted); }
+.socials a:hover{ color:var(--blue-bright); }
+.foot-iso{ display:flex; justify-content:space-between; align-items:center; gap:22px; flex-wrap:wrap; margin-top:34px; padding-top:26px; border-top:1px solid var(--stroke); }
+.iso-badge{ display:flex; align-items:center; gap:16px; }
+.iso-badge .seal{ padding:11px 15px; border-radius:10px; border:1.5px solid var(--blue); color:var(--blue-bright); font-family:var(--disp); font-size:13px; font-weight:700; background:var(--blue-dim); }
+.legal{ display:flex; gap:20px; flex-wrap:wrap; }
+.legal a{ font-size:12.5px; color:var(--muted); text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+.legal a:hover{ color:var(--ink); }
+.foot-bottom{ display:flex; justify-content:space-between; gap:14px; margin-top:30px; padding-top:22px; border-top:1px solid var(--stroke); font-size:12.5px; color:var(--faint); }
+
+@media (max-width:920px){ .rel-grid{ grid-template-columns:1fr; } .foot-grid{ grid-template-columns:1fr 1fr; } .nav .links{ display:none; } .art-title{ font-size:33px; } }
+@media (max-width:560px){ .sheet,.article-wrap{ padding:0 18px; } .foot-grid{ grid-template-columns:1fr; } .art-title{ font-size:28px; } .art-body{ font-size:16.5px; } }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="nav-wrap">
+  <div class="sheet">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="mark">TS</span> Technology Solutions</a>
+      <ul class="links">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="soluciones.php">Soluciones</a></li>
+        <li><a href="clientes.php">Clientes</a></li>
+        <li><a href="index.html" class="active">Seguridad</a></li>
+        <li><a href="novedades.html">Novedades</a></li>
+      </ul>
+      <div class="right">
+        <a class="btn ghost sm" href="contactenos.php">Contáctenos</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main class="stage">
+  <div class="article-wrap">
+    <article id="article">
+      <div class="loading">Cargando artículo…</div>
+    </article>
+  </div>
+
+  <div class="sheet">
+    <section class="related" id="related" style="display:none">
+      <h3>Otras novedades</h3>
+      <div class="rel-grid" id="rel-grid"></div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom:14px;"><span class="mark">TS</span> Technology Solutions</a>
+          <div class="ftext">Damos valor a las empresas latinoamericanas en el ciclo de vida del software con soluciones innovadoras y certificadas.</div>
+          <div class="socials"><a href="#">LinkedIn</a><a href="#">X</a><a href="#">Linktree</a></div>
+        </div>
+        <div><h4>Argentina</h4><div class="ftext sm">Av. Cabildo 1370 · Of. 301 · CABA<br/>(+54) 11 4963 9345</div></div>
+        <div><h4>Chile</h4><div class="ftext sm">Av. Providencia 1208 · Of. 1604<br/>Providencia, Santiago<br/>(+56) 2 3287 4904</div></div>
+        <div><h4>México</h4><div class="ftext sm">Av. Insurgentes Sur 1863 · Of. 301<br/>Ciudad de México<br/>(+55) 5 6631 579</div></div>
+      </div>
+      <div class="foot-iso">
+        <div class="iso-badge"><span class="seal">ISO/IEC 27001</span><div><div class="ftext" style="color:var(--ink);font-weight:600">Certificados en ISO 27001 — Seguridad de la Información</div><div class="ftext sm">Vigente hasta 2027</div></div></div>
+        <div class="legal"><a href="#">Privacidad de Datos</a><a href="#">Política General de Seguridad de la Información</a></div>
+      </div>
+      <div class="foot-bottom"><span>© Technology Solutions 2026</span><span>Argentina · Chile · México</span></div>
+    </footer>
+  </div>
+</main>
+
+<script>
+const ICONS = {
+  aviso:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>',
+  boletin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg>',
+  certificacion:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m9 13-2 8 5-3 5 3-2-8"/></svg>',
+  practicas:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+  destacado:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/></svg>',
+  default:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3z"/></svg>'
+};
+function iconFor(cat){ const k=(cat||'').toLowerCase(); if(k.includes('avis'))return ICONS.aviso; if(k.includes('bolet'))return ICONS.boletin; if(k.includes('cert'))return ICONS.certificacion; if(k.includes('pr\u00e1ct')||k.includes('pract'))return ICONS.practicas; if(k.includes('destac'))return ICONS.destacado; return ICONS.default; }
+function escapeHtml(s){ return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function readingTime(art){
+  let words = 0;
+  (art.contenido||[]).forEach(b=>{
+    if(b.texto) words += b.texto.split(/\s+/).length;
+    if(b.items) b.items.forEach(i=> words += i.split(/\s+/).length);
+  });
+  return Math.max(1, Math.round(words/200));
+}
+
+function renderBlocks(blocks){
+  if(!blocks || !blocks.length) return '<p>Contenido no disponible.</p>';
+  return blocks.map(b=>{
+    if(b.tipo==='subtitulo') return `<h2>${escapeHtml(b.texto)}</h2>`;
+    if(b.tipo==='cita') return `<blockquote>${escapeHtml(b.texto)}</blockquote>`;
+    if(b.tipo==='lista') return `<ul>${(b.items||[]).map(i=>`<li>${escapeHtml(i)}</li>`).join('')}</ul>`;
+    return `<p>${escapeHtml(b.texto)}</p>`;
+  }).join('');
+}
+
+function renderArticle(art){
+  document.title = art.titulo + ' · Seguridad de la Información · Technology Solutions';
+  document.getElementById('article').innerHTML = `
+    <a class="back" href="novedades.html">← Volver a novedades</a>
+    <div><span class="chip">${escapeHtml(art.categoria||'')}</span></div>
+    <h1 class="art-title">${escapeHtml(art.titulo)}</h1>
+    <div class="art-meta">
+      <span>${escapeHtml(art.fecha||'')}</span>
+      <span class="sep"></span>
+      <span>${escapeHtml(art.autor||'Equipo de Seguridad de la Información')}</span>
+      <span class="sep"></span>
+      <span>${readingTime(art)} min de lectura</span>
+    </div>
+    <div class="art-hero">${iconFor(art.categoria)}</div>
+    <div class="art-body">${renderBlocks(art.contenido)}</div>
+    <div class="art-foot">
+      <div class="who">Publicado por <b>${escapeHtml(art.autor||'Equipo de Seguridad de la Información')}</b></div>
+      <a class="btn ghost sm" href="novedades.html">Ver todas las novedades →</a>
+    </div>`;
+}
+
+function renderRelated(all, currentId){
+  const others = all.filter(a=>a.id!==currentId).slice(0,3);
+  if(!others.length) return;
+  document.getElementById('rel-grid').innerHTML = others.map(n=>`
+    <article class="rel-card" onclick="window.location.href='articulo.html?id=${encodeURIComponent(n.id)}'">
+      <span class="cat">${escapeHtml(n.categoria||'')}</span>
+      <h4>${escapeHtml(n.titulo)}</h4>
+      <span class="date">${escapeHtml(n.fecha||'')}</span>
+    </article>`).join('');
+  document.getElementById('related').style.display='';
+}
+
+function showNotFound(){
+  document.getElementById('article').innerHTML = `
+    <div class="notfound">
+      <h1>Artículo no encontrado</h1>
+      <p style="margin-bottom:22px">La noticia que buscas no existe o fue movida.</p>
+      <a class="btn primary" href="novedades.html">Ver todas las novedades</a>
+    </div>`;
+}
+
+async function load(){
+  const id = new URLSearchParams(location.search).get('id');
+  if(!id){ showNotFound(); return; }
+  try{
+    const res = await fetch('noticias.json', { cache:'no-store' });
+    const data = await res.json();
+    const all = Array.isArray(data) ? data : (data.noticias||[]);
+    const art = all.find(a=>a.id===id);
+    if(!art){ showNotFound(); return; }
+    renderArticle(art);
+    renderRelated(all, id);
+  }catch(e){ showNotFound(); }
+}
+load();
+
+// reading progress
+const bar = document.getElementById('progress');
+addEventListener('scroll', ()=>{
+  const h = document.documentElement.scrollHeight - innerHeight;
+  bar.style.width = (h>0 ? (scrollY/h*100) : 0) + '%';
+}, { passive:true });
+</script>
+</body>
+</html>
