@@ -74,7 +74,4 @@ Luego entra a `http://localhost:8000`.
  
 Los enlaces del menú/footer a `index.php`, `soluciones.php`, etc. y los PDFs de política apuntan a rutas del sitio actual. Ajústalas si la estructura de carpetas cambia al integrar.
  
-## Opcional: noticias desde Google Sheets
- 
-Si más adelante prefieres editar desde una planilla en vez de JSON, se puede publicar una Google Sheet como JSON y cambiar la URL del `fetch()`. Avísame y lo configuramos.
  
